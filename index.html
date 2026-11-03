@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Хөвсгөл аялал – Лаб 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6f4; --surface:#ffffff; --ink:#14302b; --muted:#4d6560; --brand:#0f5c52; --accent:#c8912b; --line:#cfdad6;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0e1b19;--surface:#162826;--ink:#e6efec;--muted:#9fb5b0;--brand:#3fb5a3;--accent:#e3b055;--line:#2a403c}
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans",system-ui,sans-serif;overflow-x:hidden}
+img,svg{max-width:100%}
+h1,h2,h3{font-family:"Noto Serif",Georgia,serif;line-height:1.2;margin:0 0 .5em}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+
+
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+.logo{font-family:"Noto Serif",serif;font-weight:700;font-size:1.25rem;color:var(--brand);text-decoration:none}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav a{color:var(--ink);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a:focus-visible{border-color:var(--accent);outline:none}
+#menu-toggle,.burger{display:none}
+
+.hero{padding:72px 0;background:linear-gradient(135deg,var(--brand),#0b3f39);color:#fff}
+.hero h1{font-size:3rem;max-width:16ch}
+.hero p{max-width:52ch;font-size:1.125rem}
+.btn{display:inline-block;background:var(--accent);color:#1b1305;font-weight:600;padding:12px 24px;border-radius:6px;text-decoration:none}
+
+
+section{padding:56px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px}
+.card .pic{height:140px;border-radius:6px;margin-bottom:16px;background:linear-gradient(160deg,var(--brand),var(--accent))}
+.card p{color:var(--muted);margin:0}
+
+.wf{display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start}
+.frame{border:2px dashed var(--muted);border-radius:8px;padding:12px;background:var(--surface)}
+.frame small{display:block;color:var(--muted);margin-bottom:8px}
+.b{border:1.5px solid var(--muted);border-radius:4px;padding:6px 8px;margin-bottom:8px;font-size:.8rem;color:var(--muted);text-align:center;background:var(--bg)}
+.b.tall{padding:24px 8px}
+.row{display:grid;gap:8px}
+.row.c3{grid-template-columns:repeat(3,1fr)}
+.row.c1{grid-template-columns:1fr}
+.row .b{margin:0}
+.phone{max-width:240px}
+
+footer{background:var(--surface);border-top:1px solid var(--line);padding:24px 0;color:var(--muted);text-align:center}
+
+
+@media (max-width:1023px){
+  .hero h1{font-size:2.4rem}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .wf{grid-template-columns:1fr}
+  .phone{max-width:100%}
+  nav ul{gap:18px}
+}
+
+@media (max-width:767px){
+  section{padding:40px 0}
+  .hero{padding:48px 0}
+  .hero h1{font-size:1.9rem}
+  .grid{grid-template-columns:1fr}
+  .row.c3{grid-template-columns:1fr}
+  .burger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:12px;margin-right:-12px}
+  .burger span{width:24px;height:2px;background:var(--ink)}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .25s}
+  nav ul{flex-direction:column;gap:0;padding:0 20px}
+  nav li a{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
+  #menu-toggle:checked ~ nav{max-height:320px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Хөвсгөл аялал</a>
+    <input type="checkbox" id="menu-toggle" aria-label="Цэс нээх">
+    <label class="burger" for="menu-toggle"><span></span><span></span><span></span></label>
+    <nav aria-label="Үндсэн цэс">
+      <ul>
+        <li><a href="#top">Нүүр</a></li>
+        <li><a href="#tours">Аяллууд</a></li>
+        <li><a href="#wireframe">Wireframe</a></li>
+        <li><a href="#contact">Холбоо барих</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Хөвсгөл нуурын эрэг дээрх гурван өдөр</h1>
+      <p>Гэр буудал, морин аялал, тайгын дундах алхалт. Жижиг бүлгээр, туршлагатай хөтөчтэй явна.</p>
+      <a class="btn" href="#tours">Аяллыг үзэх</a>
+    </div>
+  </div>
+
+  <section id="tours">
+    <div class="wrap">
+      <h2>Аяллууд</h2>
+      <div class="grid">
+        <article class="card"><div class="pic"></div><h3>Морин аялал</h3><p>Нуурын баруун эрэг дагасан 2 өдрийн маршрут.</p></article>
+        <article class="card"><div class="pic"></div><h3>Тайгын алхалт</h3><p>Цаатан иргэдийн нутаг хүртэлх хөнгөн зам.</p></article>
+        <article class="card"><div class="pic"></div><h3>Завиар аялал</h3><p>Нарны жаргалтыг нуур дээрээс үзэх үдшийн аялал.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="wireframe">
+    <div class="wrap">
+      <h2>Wireframe (эх макет)</h2>
+      <div class="wf">
+        <div class="frame">
+          <small>Компьютер (≥ 1024px)</small>
+          <div class="b">Лого | Нүүр · Аяллууд · Wireframe · Холбоо барих</div>
+          <div class="b tall">Hero: гарчиг + товч</div>
+          <div class="row c3"><div class="b tall">Карт 1</div><div class="b tall">Карт 2</div><div class="b tall">Карт 3</div></div>
+          <div class="b" style="margin-top:8px">Footer</div>
+        </div>
+        <div class="frame phone">
+          <small>Гар утас (≤ 767px)</small>
+          <div class="b">Лого &nbsp; ☰</div>
+          <div class="b tall">Hero</div>
+          <div class="row c1"><div class="b tall">Карт 1</div><div class="b tall">Карт 2</div><div class="b tall">Карт 3</div></div>
+          <div class="b" style="margin-top:8px">Footer</div>
+        </div>
+      </div>
+      <p style="color:var(--muted)">Таблет (768–1023px) дээр картууд 2 баганатай, цэс дэлгэгдсэн хэвээр байна.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Холбоо барих</h2>
+      <p>Утас: 9911-0000 · И-мэйл: info@example.mn</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Хөвсгөл аялал – Лаб 5</div></footer>
+</body>
+</html>
